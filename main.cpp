@@ -1,24 +1,19 @@
 ﻿#include <iostream>
 using namespace std;
-
-double my_pow(double x, int y) {
+double my_pow(double x, unsigned int y) {
     double q = 1;
-
-    if (y < 0) {
-        y = -y;
-        for (double i = 0; i < y; i++) {
-            q = q * x;
+    while (y) {
+        if (y % 2 == 0) {
+            y =y / 2;
+            x =x * x;
         }
-
-        return 1 / q;
-    }
-    else {
-        for (double i = 0; i < y; i++) {
-            q = q * x;
+        else {
+            y--;
+            q =q * x;
         }
-        cout << q << endl;
-        return q;
     }
+
+    return q;
 }
 int main()
 {
